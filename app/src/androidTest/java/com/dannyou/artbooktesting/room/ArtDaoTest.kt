@@ -44,6 +44,7 @@ class ArtDaoTest {
     fun insertArtTesting() = runTest {
 
         val exampleArt = Art(
+            id = 1,
             name = "Mona Lisa",
             artist = "Da Vinci",
             year = 1970,
@@ -53,12 +54,23 @@ class ArtDaoTest {
         dao.insertArt(exampleArt)
 
         val list = dao.observeArts().getOrAwaitValue()
-        assertThat()
-
+        assertThat(list).contains(exampleArt)
     }
 
     @Test
-    fun deleteArtTesting() {
+    fun deleteArtTesting() = runTest {
+        val exampleArt = Art(
+            id = 1,
+            name = "Mona Lisa",
+            artist = "Da Vinci",
+            year = 1970,
+            imageUrl = "teste.com"
+        )
 
+        dao.insertArt(exampleArt)
+        dao.deleteArt(exampleArt)
+
+        val list = dao.observeArts().getOrAwaitValue()
+        assertThat(list).doesNotContain(exampleArt)
     }
 }
