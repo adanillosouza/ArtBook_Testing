@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -78,6 +79,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.truth)
+    testImplementation("org.mockito:mockito-core:4.7.0")
 
     // ANDROID TESTING
     androidTestImplementation(libs.androidx.junit)
@@ -85,12 +87,11 @@ dependencies {
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.core.testing.v210)
     androidTestImplementation(libs.truth)
-    androidTestImplementation(libs.mockito.core)
+    androidTestImplementation(libs.hilt.android.testing.v244)
+    androidTestImplementation("org.mockito:mockito-android:4.7.0")
+    androidTestImplementation("io.mockk:mockk-android:1.12.0")
 
-    // Se você estiver usando Android Test
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
-
+    kaptAndroidTest(libs.hilt.android.compiler)
     debugImplementation(libs.androidx.fragment.testing)
 }
 

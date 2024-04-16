@@ -34,9 +34,7 @@ class ArtDaoTest {
 
     @Before
     fun setup() {
-
         hiltRule.inject()
-
         dao = database.artDao()
     }
 
