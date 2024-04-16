@@ -16,6 +16,7 @@ import com.dannyou.artbooktesting.viewmodel.ArtViewModel
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
@@ -58,7 +59,7 @@ class ArtDetailFragmentTest {
 
     @Test
     fun testOnBackPressed() {
-        val navController = Mockito.mock(NavController::class.java)
+        val navController = mockk<NavController>()
 
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory

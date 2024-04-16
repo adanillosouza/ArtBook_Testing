@@ -30,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         viewBinding = true
@@ -55,6 +55,7 @@ dependencies {
 
     // HILT
     implementation("com.google.dagger:hilt-android:2.48")
+    implementation(libs.androidx.espresso.contrib)
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     // COROUTINES
@@ -89,7 +90,7 @@ dependencies {
     androidTestImplementation(libs.truth)
     androidTestImplementation(libs.hilt.android.testing.v244)
     androidTestImplementation("org.mockito:mockito-android:4.7.0")
-    androidTestImplementation("io.mockk:mockk-android:1.12.0")
+    androidTestImplementation("io.mockk:mockk-android:1.12.4")
 
     kaptAndroidTest(libs.hilt.android.compiler)
     debugImplementation(libs.androidx.fragment.testing)
