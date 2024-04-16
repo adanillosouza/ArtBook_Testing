@@ -16,7 +16,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.dannyou.artbooktesting.HiltTestRunner"
     }
 
     buildTypes {
@@ -84,6 +85,13 @@ dependencies {
     androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.core.testing.v210)
     androidTestImplementation(libs.truth)
+    androidTestImplementation(libs.mockito.core)
+
+    // Se você estiver usando Android Test
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
+
+    debugImplementation(libs.androidx.fragment.testing)
 }
 
 // Allow references to generated code
